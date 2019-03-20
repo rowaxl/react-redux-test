@@ -5,7 +5,11 @@ import CommentBox from '../CommentBox';
 import CommentList from '../CommentList';
 
 describe('Check App component', () => {
-    const wrapped = shallow(<App />);
+    let wrapped;
+
+    beforeEach(() => {
+        wrapped = shallow(<App />);
+    });
 
     it('Check App contains comment box', () => {
         expect(wrapped.find(CommentBox).length).toEqual(1);
@@ -14,4 +18,6 @@ describe('Check App component', () => {
     it('Check App contains comment list', () => {
         expect(wrapped.find(CommentList).length).toEqual(1);
     });
+
+    
 });
