@@ -21,6 +21,9 @@ describe('test CommentBox components', () => {
     it('change text area value and check state changed', () => {
         const value = 'test comment';
         wrapped.find('textarea').simulate('change', { target: { value } });
+        wrapped.update();
+
         expect(wrapped.state('comment')).toEqual(value);
+        expect(wrapped.find('textarea').prop('value')).toEqual(value);
     });
 });
