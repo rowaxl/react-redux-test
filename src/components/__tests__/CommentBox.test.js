@@ -28,11 +28,14 @@ describe('test CommentBox components', () => {
     });
 
     it('when click submit button, textarea will be clean', () => {
+        // set comments
         const value = 'new comment';
         wrapped.find('textarea').simulate('change', { target: { value } });
         wrapped.update();
 
+        // do Submit
         wrapped.find('form').simulate('submit');
+        wrapped.update();
         expect(wrapped.find('textarea').prop('value')).toEqual('');
     })
 });
