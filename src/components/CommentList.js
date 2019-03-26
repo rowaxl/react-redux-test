@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {ulid} from 'ulid';
+import { ulid } from 'ulid';
 
 class CommentList extends Component { 
     render() {
