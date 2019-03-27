@@ -4,7 +4,7 @@ import App from '../App';
 import CommentBox from '../CommentBox';
 import CommentList from '../CommentList';
 
-describe('Check App component', () => {
+describe('Check App\'s components', () => {
     let wrapped;
 
     beforeEach(() => {
