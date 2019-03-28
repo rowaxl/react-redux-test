@@ -2,7 +2,7 @@ import commentReducer from 'reducers/comments';
 import { ADD_COMMENT } from 'actions/types';
 
 describe('test comments reducers', () => {
-    it('test add comment action', () => {
+    it('handle add comment type', () => {
         const newComment = 'New Comment';
 
         const action = {
@@ -13,5 +13,18 @@ describe('test comments reducers', () => {
         const newState = commentReducer([], action);
 
         expect(newState).toEqual([newComment]);
+    });
+
+    it('handle unexpected type', () => {
+        const newComment = 'New Comment';
+
+        const action = {
+            type: 'EDIT_COMMENT',
+            payload: newComment
+        };
+
+        const newState = commentReducer([], action);
+
+        expect(newState).toEqual([]);
     });
 });
