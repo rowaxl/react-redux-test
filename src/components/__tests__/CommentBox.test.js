@@ -28,7 +28,6 @@ describe('test CommentBox components', () => {
         wrapped.find('textarea').simulate('change', { target: { value } });
         wrapped.update();
 
-        expect(wrapped.prop('comment')).toEqual(value);
         expect(wrapped.find('textarea').prop('value')).toEqual(value);
     });
 
