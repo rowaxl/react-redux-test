@@ -1,12 +1,19 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 import CommentBox from '../CommentBox';
+import reducers from '../../reducers';
 
 describe('test CommentBox components', () => {
     let wrapped;
 
     beforeEach(() => {
-        wrapped = mount(<CommentBox />);
+        wrapped = mount(
+            <Provider store={createStore(reducers)}>
+                <CommentBox />
+            </Provider>
+        );
     });
     
     afterEach(() => {
@@ -23,7 +30,7 @@ describe('test CommentBox components', () => {
         wrapped.find('textarea').simulate('change', { target: { value } });
         wrapped.update();
 
-        expect(wrapped.state('comment')).toEqual(value);
+        expect(wrapped.prop('comment')).toEqual(value);
         expect(wrapped.find('textarea').prop('value')).toEqual(value);
     });
 
