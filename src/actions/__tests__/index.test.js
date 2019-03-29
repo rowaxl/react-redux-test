@@ -1,5 +1,5 @@
-import { addComment } from 'actions';
-import { ADD_COMMENT } from 'actions/types';
+import { addComment, fetchComments } from 'actions';
+import { ADD_COMMENT, FETCH_COMMENT } from 'actions/types';
 
 describe('addComment action test', () => {
     it('has the correct type', () => {
@@ -15,3 +15,15 @@ describe('addComment action test', () => {
         expect(action.payload).toEqual(newComment);
     });
 });
+
+describe('fetchComments action test', () => {
+    it('has the correct type', () => {
+        const action = fetchComments();
+        expect(action.type).toEqual(FETCH_COMMENT);
+    });
+
+    it('has the correct payload', async () => {
+        const action = await fetchComments();
+        expect(action.payload.length).toBeGreaterThanOrEqual(0);
+    });
+})
