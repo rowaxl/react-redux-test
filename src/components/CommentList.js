@@ -4,7 +4,11 @@ import { ulid } from 'ulid';
 
 class CommentList extends Component {
     renderComments = () => {
-        return this.props.comments.map(comment => <li key={ulid()}>{comment}</li>);
+        return this.props.comments.map(comment =>
+            <li key={ulid()}>
+                { comment }
+            </li>
+        );
     }
 
     render() {
