@@ -9,8 +9,12 @@ describe('integration test', () => {
         moxios.install();
         moxios.stubRequest('https://jsonplaceholder.typicode.com/comments', {
             status: 200,
-            response: ["abcd"]
+            response: [{name:'Fetched Comment 1'},{name:'Fetched Comment 2'}]
         });
+    });
+
+    afterEach(() => {
+        moxios.uninstall();
     });
 
     it('can fetch a list of comments and display', () => {
@@ -25,6 +29,8 @@ describe('integration test', () => {
         wrapped.find('.fetch-comments').simulate('click');
 
         // show list 
-        expect(wrapped.find('li').length).toEqual(500);
+        setTimeout(() => {
+            expect(wrapped.find('li').length).toEqual(2);
+        }, 2000);
     });
 });
