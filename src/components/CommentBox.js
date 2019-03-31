@@ -20,12 +20,12 @@ class CommentBox extends Component {
             <div>
                 <form onSubmit={this.onSubmitForm}>
                     <h4>Add a comment</h4>
-                    <textarea onChange={this.onCommentChange} value={this.state.comment} />
+                    <textarea className="submit-comments" onChange={this.onCommentChange} value={this.state.comment} />
                     <div>
                         <button>Submit</button>
                     </div>
                 </form>
-                <button onClick={this.props.fetchComments}>Fetch</button>
+                <button className="fetch-comments" onClick={this.props.fetchComments}>Fetch</button>
             </div>
         );
     };
