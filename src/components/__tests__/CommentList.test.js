@@ -1,5 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import renderer from 'react-test-renderer';
 import Root from 'Root';
 import CommentList from 'components/CommentList';
 
@@ -24,6 +25,8 @@ describe('test CommentList components', () => {
 
     it('shows the text for each comment', () => {
         const comments = ['Comment1', 'Comment2'];
-        console.log(wrapped.render().text());
+        const tree = renderer.create(wrapped).toJSON().children;
+
+        expect(tree.every((comment, i) => comment.children[0] === comments[i])).toBeTruthy();
     });
 });
