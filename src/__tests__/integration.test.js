@@ -9,7 +9,7 @@ describe('integration test', () => {
         moxios.install();
         moxios.stubRequest('https://jsonplaceholder.typicode.com/comments', {
             status: 200,
-            response: [{name:'Fetched Comment 1'},{name:'Fetched Comment 2'}]
+            response: [{name:'Fetched Comment 1'},{name:'Fetched Comment 2'},{name:'Fetched Comment 3'}]
         });
     });
 
@@ -17,7 +17,7 @@ describe('integration test', () => {
         moxios.uninstall();
     });
 
-    it('can fetch a list of comments and display', () => {
+    it('can fetch a list of comments and display', done => {
         // render
         const wrapped = mount(
             <Root>
@@ -29,8 +29,11 @@ describe('integration test', () => {
         wrapped.find('.fetch-comments').simulate('click');
 
         // show list 
-        setTimeout(() => {
-            expect(wrapped.find('li').length).toEqual(2);
-        }, 2000);
+        moxios.wait(() => {
+            wrapped.update();
+            expect(wrapped.find('li').length).toEqual(3);
+            wrapped.unmount();
+            done();
+        });
     });
 });
