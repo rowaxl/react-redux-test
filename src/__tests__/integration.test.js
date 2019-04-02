@@ -31,9 +31,9 @@ describe('integration test', () => {
         // show list 
         moxios.wait(() => {
             wrapped.update();
-            expect(wrapped.find('li').length).toEqual(3);
-            wrapped.unmount();
+            expect(wrapped.find('.comment').length).toEqual(1);
             done();
+            wrapped.unmount();
         });
     });
 });
