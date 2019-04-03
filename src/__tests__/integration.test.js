@@ -7,7 +7,7 @@ import App from 'components/App';
 describe('integration test', () => {
     beforeEach(() => {
         moxios.install();
-        moxios.stubRequest('https://jsonplaceholder.typicode.com/comments', {
+        moxios.stubRequest('http://jsonplaceholder.typicode.com/comments', {
             status: 200,
             response: [{name:'Fetched Comment 1'},{name:'Fetched Comment 2'},{name:'Fetched Comment 3'}]
         });
@@ -18,7 +18,6 @@ describe('integration test', () => {
     });
 
     it('can fetch a list of comments and display', done => {
-        // render
         const wrapped = mount(
             <Root>
                 <App />
@@ -31,7 +30,7 @@ describe('integration test', () => {
         // show list 
         moxios.wait(() => {
             wrapped.update();
-            expect(wrapped.find('.comment').length).toEqual(1);
+            expect(wrapped.find('.comment').length).toEqual(3);
             done();
             wrapped.unmount();
         });
