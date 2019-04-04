@@ -1,12 +1,17 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import CommentBox from '../CommentBox';
+import Root from 'Root';
+import CommentBox from 'components/CommentBox';
 
 describe('test CommentBox components', () => {
     let wrapped;
 
     beforeEach(() => {
-        wrapped = mount(<CommentBox />);
+        wrapped = mount(
+            <Root>
+                <CommentBox />
+            </Root>
+        );
     });
     
     afterEach(() => {
@@ -15,7 +20,7 @@ describe('test CommentBox components', () => {
 
     it('has a text area and a button', () => {
         expect(wrapped.find('textarea').length).toEqual(1);
-        expect(wrapped.find('button').length).toEqual(1);
+        expect(wrapped.find('button').length).toEqual(2);
     });
 
     it('change text area value and check state changed', () => {
@@ -23,7 +28,6 @@ describe('test CommentBox components', () => {
         wrapped.find('textarea').simulate('change', { target: { value } });
         wrapped.update();
 
-        expect(wrapped.state('comment')).toEqual(value);
         expect(wrapped.find('textarea').prop('value')).toEqual(value);
     });
 

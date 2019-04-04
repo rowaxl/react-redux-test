@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { ulid } from 'ulid';
 
-class CommentList extends Component { 
+class CommentList extends Component {
+    renderComments = () => {
+        return this.props.comments.map((comment, index) =>
+            <li className="comment" key={index}>
+                { comment }
+            </li>
+        );
+    }
+
     render() {
-        console.log('this.props: ', this.props);
         return (
             <ul>
-                {this.props.comments.map(comment => <li key={ulid()}>{comment}</li> )}
+                {this.renderComments()}
             </ul>
         );
     };
