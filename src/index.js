@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowseRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import App from 'components/App';
 import Root from 'Root';
 
 ReactDOM.render(
     <Root>
-        <BrowseRouter>
+        <BrowserRouter>
             <Route path='/' component={App}></Route>
-        </BrowseRouter>
+        </BrowserRouter>
     </Root>,
 document.querySelector('#root'));
