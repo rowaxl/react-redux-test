@@ -1,5 +1,6 @@
 import { addComment, fetchComments } from 'actions';
-import { ADD_COMMENT, FETCH_COMMENT } from 'actions/types';
+import { ADD_COMMENT, FETCH_COMMENT, CHANGE_AUTH } from 'actions/types';
+import { changeAuth } from '..';
 
 describe('addComment action test', () => {
     it('has the correct type', () => {
@@ -24,4 +25,11 @@ describe('fetchComments action test', () => {
         const action = await fetchComments();
         expect(action.payload.length).toBeGreaterThanOrEqual(0);
     });
-})
+});
+
+describe('changeAuth action test', () => {
+    it('has the correct type', () => {
+        const action = changeAuth();
+        expect(action.type).toEqual(CHANGE_AUTH);
+    });
+});
