@@ -29,7 +29,13 @@ describe('fetchComments action test', () => {
 
 describe('changeAuth action test', () => {
     it('has the correct type', () => {
-        const action = changeAuth();
+        const action = changeAuth(true);
         expect(action.type).toEqual(CHANGE_AUTH);
+    });
+
+    it('has the correct payload', () => {
+        const isLoggedIn = true;
+        const action = changeAuth(isLoggedIn);
+        expect(action.payload).toEqual(isLoggedIn);
     });
 });
