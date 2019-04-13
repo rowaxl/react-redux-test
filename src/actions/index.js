@@ -8,10 +8,12 @@ export const addComment = comment => {
 export const fetchComments = async () => {
     const response = await axios.get('http://jsonplaceholder.typicode.com/comments');
 
-    return {
+    const action = {
         type: FETCH_COMMENTS,
         payload: response.data
     };
+
+    return action;
 }
 
 export const changeAuth = isLoggedIn => {

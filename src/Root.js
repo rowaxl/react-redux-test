@@ -1,8 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
-// import reduxPromise from 'redux-promise';
-import async from 'middlewares/async';
+import reduxPromise from 'redux-promise';
 import reducers from 'reducers';
 
 export default ({ children, initialState = {} }) => {
@@ -11,7 +10,7 @@ export default ({ children, initialState = {} }) => {
         reducers,
         initialState,
         composeEnhancers(
-            applyMiddleware(async)
+            applyMiddleware(reduxPromise)
         ));
 
     return (
