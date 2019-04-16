@@ -2,7 +2,8 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import reduxPromise from 'redux-promise';
-import reducers from './reducers';
+import stateValidator from 'middlewares/stateValidator';
+import reducers from 'reducers';
 
 export default ({ children, initialState = {} }) => {
     const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -10,7 +11,8 @@ export default ({ children, initialState = {} }) => {
         reducers,
         initialState,
         composeEnhancers(
-            applyMiddleware(reduxPromise)
+            // redux promise control if action include promise, wait till resolve.
+            applyMiddleware(reduxPromise, stateValidator)
         ));
 
     return (
