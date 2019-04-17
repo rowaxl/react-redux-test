@@ -11,7 +11,6 @@ export default ({ children, initialState = {} }) => {
         reducers,
         initialState,
         composeEnhancers(
-            // redux promise control if action include promise, wait till resolve.
             applyMiddleware(reduxPromise, stateValidator)
         ));
 
