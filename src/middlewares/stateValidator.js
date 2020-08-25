@@ -1,5 +1,5 @@
 import { validate } from 'tv4';
-import stateSchema from 'middlewares/stateSchema';
+import stateSchema from './stateSchema';
 
 export default ({ dispatch, getState }) => next => action => {
     next(action);

@@ -1,5 +1,5 @@
-import commentReducer from 'reducers/comments';
-import { ADD_COMMENT } from 'actions/types';
+import commentReducer from '../comments';
+import { ADD_COMMENT } from '../../actions/types';
 
 describe('test comments reducers', () => {
     it('handle add comment type', () => {

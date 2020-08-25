@@ -1,8 +1,8 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import renderer from 'react-test-renderer';
-import Root from 'Root';
-import CommentList from 'components/CommentList';
+import Root from '../../Root';
+import CommentList from '../CommentList';
 
 describe('test CommentList components', () => {
     let wrapped;

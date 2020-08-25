@@ -1,8 +1,8 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import moxios from 'moxios';
-import Root from 'Root';
-import App from 'components/App';
+import Root from '../Root';
+import App from '../components/App';
 
 describe('integration test', () => {
     beforeEach(() => {

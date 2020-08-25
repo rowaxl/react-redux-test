@@ -122,8 +122,8 @@
       "node"
     ],
     "watchPlugins": [
-      "/Users/wonjae.kim/priv_practice/AdvancedReduxCode-master/react-redux-test/node_modules/jest-watch-typeahead/filename.js",
-      "/Users/wonjae.kim/priv_practice/AdvancedReduxCode-master/react-redux-test/node_modules/jest-watch-typeahead/testname.js"
+      "./node_modules/jest-watch-typeahead/filename.js",
+      "./node_modules/jest-watch-typeahead/testname.js"
     ]
   },
   "babel": {

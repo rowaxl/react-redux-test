@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-import Header from 'components/Header';
-import CommentBox from 'components/CommentBox';
-import CommentList from 'components/CommentList';
+import Header from './Header';
+import CommentBox from './CommentBox';
+import CommentList from './CommentList';
 
 class App extends Component { 
     render() {

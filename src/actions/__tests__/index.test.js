@@ -1,6 +1,5 @@
-import { addComment, fetchComments } from 'actions';
-import { ADD_COMMENT, FETCH_COMMENT, CHANGE_AUTH } from 'actions/types';
-import { changeAuth } from '..';
+import { addComment, fetchComments, changeAuth } from '..';
+import { ADD_COMMENT, FETCH_COMMENT, CHANGE_AUTH } from '../types';
 
 describe('addComment action test', () => {
     it('has the correct type', () => {
